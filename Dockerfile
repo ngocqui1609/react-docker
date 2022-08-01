@@ -1,9 +1,7 @@
-FROM node:14.16-stretch-slim as build
+FROM node:14.16.0-stretch-slim as build
 WORKDIR /app
-COPY . .
-RUN npm install
-RUN npm start
+COPY . /app
+RUN npm install && npm run build
 
-FROM nginx:latest as production-stage
+FROM nginx:latest
 COPY --from=build /app/build /usr/share/nginx/html
-CMD ["nginx", "-g", "daemon off;"]
