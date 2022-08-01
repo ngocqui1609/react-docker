@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:14.16.0-stretch-slim as build
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
