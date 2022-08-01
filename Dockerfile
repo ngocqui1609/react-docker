@@ -1,8 +1,11 @@
 FROM node:14.16.0-stretch-slim as build
 WORKDIR /app
-COPY . .
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install
-RUN npm run build
+COPY . ./
+CMD ["npm", "start"]
 
 # production stage
 FROM nginx:1.17-alpine as production-stage
