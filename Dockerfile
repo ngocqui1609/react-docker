@@ -8,5 +8,5 @@ COPY . ./
 CMD ["npm", "start"]
 
 # production stage
-FROM nginx:1.17-alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+# FROM nginx:1.17-alpine as production-stage
+# COPY --from=build-stage /app/dist /usr/share/nginx/html
