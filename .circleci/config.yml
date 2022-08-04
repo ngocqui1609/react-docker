@@ -26,6 +26,10 @@ jobs:
       - run:
           command: |
             echo "Digest is: $(</tmp/digest.txt)"
+            sh 'composer install'
+            sh 'docker-compose down'
+            sh 'docker rmi $DOCKER_IMAGE'
+            sh 'docker-compose up -d'
 #   deploy:
 #     executor: docker/docker
 #     steps:
