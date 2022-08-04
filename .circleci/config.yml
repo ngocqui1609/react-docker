@@ -25,10 +25,10 @@ jobs:
           tag: $DOCKER_TAG
       - run:
           command: |
-            sh 'composer install'
-            sh 'docker-compose down'
-            sh 'docker rmi $DOCKER_IMAGE'
-            sh 'docker-compose up -d'
+            composer install
+            docker-compose down
+            docker rmi $DOCKER_IMAGE
+            docker-compose up -d
 #   deploy:
 #     executor: docker/docker
 #     steps:
