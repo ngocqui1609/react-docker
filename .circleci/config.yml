@@ -26,8 +26,8 @@ jobs:
       - run:
           command: |
             echo 'composer install'
-            echo 'docker-compose stop'
-            ehco 'docker-compose rm -f'
+            echo 'docker-compose down'
+            ehco 'docker-compose rmi -f'
             echo 'docker-compose pull'
             echo 'docker-compose up -d'
   deploy:
