@@ -27,7 +27,6 @@ jobs:
           command: |
             composer install
             docker-compose down
-            docker rmi $DOCKER_IMAGE
             docker-compose up -d
 #   deploy:
 #     executor: docker/docker
