@@ -45,11 +45,11 @@ workflows:
             branches:
               only:
                 - master
-      - approval:
-          type: approval
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - master
+#       - approval:
+#           type: approval
+#           requires:
+#             - build
+#           filters:
+#             branches:
+#               only:
+#                 - master
