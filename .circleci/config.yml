@@ -25,9 +25,9 @@ jobs:
           tag: $DOCKER_TAG
       - run:
           command: |
-            composer install
-            docker-compose down
-            docker-compose up -d
+            echo 'composer install'
+            echo 'docker-compose down'
+            echo 'docker-compose up -d'
 #   deploy:
 #     executor: docker/docker
 #     steps:
