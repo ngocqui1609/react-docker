@@ -25,6 +25,7 @@ jobs:
           tag: $DOCKER_TAG
       - run:
           command: |
+            echo 'composer install'
             echo 'docker-compose stop'
             ehco 'docker-compose rm -f'
             echo 'docker-compose pull'
