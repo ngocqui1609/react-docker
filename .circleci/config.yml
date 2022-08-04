@@ -45,7 +45,18 @@ workflows:
             branches:
               only:
                 - master
-      # uncomment the 3 following lines to enable deploying
-      - deploy:
+      - approval:
+          type: approval
           requires:
-            - build-and-push
+            - build
+          filters:
+            branches:
+              only:
+                - master
+       - deploy-production:
+          requires:
+            - approval
+          filters:
+            branches:
+              only:
+                - master
