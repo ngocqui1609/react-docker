@@ -53,10 +53,3 @@ workflows:
             branches:
               only:
                 - master
-#        - deploy-production:
-#           requires:
-#             - approval
-#           filters:
-#             branches:
-#               only:
-#                 - master
