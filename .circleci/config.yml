@@ -50,6 +50,5 @@ workflows:
               only:
                 - master
       - deploy:
-          type: approval
           requires:
             - build-and-push
