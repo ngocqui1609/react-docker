@@ -36,12 +36,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "14:bc:63:8a:e6:3c:57:85:cb:fb:c9:1f:96:18:6c:d1"
-      - run: ssh -oStrictHostKeyChecking=no ubuntu@13.212.79.132
-      - run:
-          command: |
-            echo 'docker-compose down'
-            echo 'docker-compose pull'
-            echo 'docker-compose up -d'
+      - run: ssh -oStrictHostKeyChecking=no ubuntu@13.212.79.132 "./circleci/deploy.sh"
 
 workflows:
   my-pipeline:
