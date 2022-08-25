@@ -5,6 +5,8 @@ orbs:
   docker: circleci/docker@1.4.0
 
 jobs:
+  setup:
+    working_directory: ~/workspace
   build-and-push:
     environment:
       DOCKER_IMAGE: ngocqui/react-docker
@@ -36,7 +38,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "14:bc:63:8a:e6:3c:57:85:cb:fb:c9:1f:96:18:6c:d1"
-      - run: ssh -oStrictHostKeyChecking=no ubuntu@13.212.79.132 "./circleci/deploy.sh"
+      - run: ssh -oStrictHostKeyChecking=no ubuntu@13.212.79.132 "bash ~/workspace/.circleci/deploy.sh"
 
 workflows:
   my-pipeline:
