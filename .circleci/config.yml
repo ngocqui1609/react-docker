@@ -43,9 +43,15 @@ jobs:
 workflows:
   my-pipeline:
     jobs:
+      - setup:
+        filters:
+          branches:
+            only:
+            - master
       - node/test
       - build-and-push:
           requires:
+            - setup
             - node/test
           filters:
             branches:
