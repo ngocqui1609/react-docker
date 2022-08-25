@@ -36,14 +36,13 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "14:bc:63:8a:e6:3c:57:85:cb:fb:c9:1f:96:18:6c:d1"
-      - run: ssh -oStrictHostKeyChecking=no ubuntu@13.212.79.132 './deploy.sh'
+      - run: ssh -oStrictHostKeyChecking=no ubuntu@13.212.79.132
 
 workflows:
   my-pipeline:
     jobs:
       - node/test
       - build-and-push:
-          type: approval
           requires:
             - node/test
           filters:
@@ -51,5 +50,6 @@ workflows:
               only:
                 - master
       - deploy:
+          type: approval
           requires:
             - build-and-push
