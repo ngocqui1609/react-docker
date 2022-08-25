@@ -5,8 +5,6 @@ orbs:
   docker: circleci/docker@1.4.0
 
 jobs:
-  setup:
-    working_directory: ~/workspace
   build-and-push:
     environment:
       DOCKER_IMAGE: ngocqui/react-docker
@@ -43,14 +41,10 @@ jobs:
 workflows:
   my-pipeline:
     jobs:
-      - setup:
-          filters:
-            branches:
-              only:
-                - master
+      - node-test
       - build-and-push:
           requires:
-            - setup
+            - node-test
           filters:
             branches:
               only:
