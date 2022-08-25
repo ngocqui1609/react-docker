@@ -6,7 +6,7 @@ orbs:
 
 jobs:
   setup:
-    - image: ngocqui/react-docker:latest
+    - image: node:14.16.0-stretch-slim as build
     working_directory: ~/workspace
   build-and-push:
     environment:
