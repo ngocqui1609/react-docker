@@ -35,7 +35,7 @@ jobs:
       # Please add $SSH_KEY_FINGERPRINT, $DEPLOYED_USER@ and DEPLOYED_SERVER to project's environment
       - add_ssh_keys:
           fingerprints:
-            - "57:5b:b5:23:1e:d2:d2:ae:88:ab:d2:08:c1:ba:36:76"
+            - "14:bc:63:8a:e6:3c:57:85:cb:fb:c9:1f:96:18:6c:d1"
       - run: ssh -oStrictHostKeyChecking=no ubuntu@13.212.79.132 './deploy.sh'
 
 workflows:
