@@ -31,6 +31,7 @@ jobs:
             echo 'docker-compose up -d'
   deploy:
     executor: docker/docker
+    working_directory: /var/lib/jenkins
     steps:
       # Please add $SSH_KEY_FINGERPRINT, $DEPLOYED_USER@ and DEPLOYED_SERVER to project's environment
       - add_ssh_keys:
