@@ -38,7 +38,7 @@ jobs:
             - "57:5b:b5:23:1e:d2:d2:ae:88:ab:d2:08:c1:ba:36:76"
       - run:
           command: |
-            ssh -oStrictHostKeyChecking=no jenkins@13.212.79.132 "bash /react-docker/deploy.sh"
+            ssh -oStrictHostKeyChecking=no jenkins@13.212.79.132 "bash deploy.sh"
 
 workflows:
   my-pipeline:
