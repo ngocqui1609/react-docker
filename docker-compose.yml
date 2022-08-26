@@ -3,4 +3,4 @@ services:
   mywebsite:
     image: ngocqui/react-docker:latest
     ports:
-      - "80:80"
+      - "80:3000"
