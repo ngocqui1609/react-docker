@@ -6,11 +6,11 @@ orbs:
 
 jobs:
   build-and-push:
-    circleci_ip_ranges: true
     environment:
       DOCKER_IMAGE: ngocqui/react-docker
       DOCKER_TAG: latest
     executor: docker/docker
+    circleci_ip_ranges: true
     steps:
       - setup_remote_docker
       - checkout
