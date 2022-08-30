@@ -6,6 +6,7 @@ orbs:
 
 jobs:
   build-and-push:
+    circleci_ip_ranges: true
     environment:
       DOCKER_IMAGE: ngocqui/react-docker
       DOCKER_TAG: latest
