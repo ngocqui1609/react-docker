@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-cd `dirname $BASH_SOURCE`
-
-docker-compose stop
-docker-compose rm -f
-docker-compose pull
+cd ~/var/lib/jenkins
+docker-compose down
 docker-compose up -d
-
-cd - > /dev/null
