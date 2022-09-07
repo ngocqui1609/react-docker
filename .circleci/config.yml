@@ -49,11 +49,5 @@ workflows:
               only:
                 - master
       - deploy:
-          ssh-host: 10.0.0.134
-          ssh-user: jenkins
-          git-repo: https://github.com/ngocqui1609/react-docker/
-          git-branch: master
-          image: $DOCKER_IMAGE
-          tag: $DOCKER_TAG
           requires:
             - build-and-push
