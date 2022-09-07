@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd /var/lib/jenkins
+cd ~/var/lib/jenkins
 
 git pull origin main
 
