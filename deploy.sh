@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd ~/var/lib/jenkins
+cd /var/lib/jenkins
 
 docker-compose stop
 docker-compose rm -f
