@@ -36,15 +36,15 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "57:5b:b5:23:1e:d2:d2:ae:88:ab:d2:08:c1:ba:36:76"
-      - run: ssh -oStrictHostKeyChecking=no jenkins@13.212.79.132 "cd ../var/lib/jenkins; git pull"
+      - run: ssh -oStrictHostKeyChecking=no jenkins@13.212.79.132 "cd /var/lib/jenkins; git pull"
 
 workflows:
   my-pipeline:
     jobs:
-      - node/test
+      #- node/test
       - build-and-push:
-          requires:
-            - node/test
+          #requires:
+            #- node/test
           filters:
             branches:
               only:
