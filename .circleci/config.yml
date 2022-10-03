@@ -34,13 +34,7 @@ jobs:
             echo 'docker-compose down'
             echo 'docker-compose pull'
             echo 'docker-compose up -d'
-  deploy: # this can be any name you choose
-    executor: docker/default
-    steps:
-      - attach_workspace:
-          at: ~/project
-      - docker/deploy-via-git:
-          force: true 
+
 workflows:
   my-pipeline:
     jobs:
@@ -52,6 +46,6 @@ workflows:
             branches:
               only:
                 - master
-      - deploy:
-          requires:
-            - build-and-push
+      #- deploy:
+          #requires:
+            #- build-and-push
