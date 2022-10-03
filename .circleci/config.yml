@@ -16,6 +16,8 @@ jobs:
       - docker/check:
           docker-username: DOCKER_USER
           docker-password: DOCKER_PASSWORD
+      - node/install-packages:
+          pkg-manager: yarn
       - run:
           command: yarn test
           name: Run tests
