@@ -9,18 +9,14 @@ jobs:
     environment:
       DOCKER_IMAGE: ngocqui/react-docker
       DOCKER_TAG: latest
-    executor: node/default
+    executor: docker/docker
     steps:
       - setup_remote_docker
       - checkout
       - docker/check:
           docker-username: DOCKER_USER
           docker-password: DOCKER_PASSWORD
-      - node/install-packages:
-          pkg-manager: yarn
-      - run:
-          command: yarn test
-          name: Run tests
+      
       - docker/build:
           image: $DOCKER_IMAGE
           tag: $DOCKER_TAG
@@ -38,10 +34,10 @@ jobs:
 workflows:
   my-pipeline:
     jobs:
-      #- node/test
+      - node/test
       - build-and-push:
-          #requires:
-            #- node/test
+          requires:
+            - node/test
           filters:
             branches:
               only:
