@@ -40,8 +40,8 @@ workflows:
     jobs:
       #- node/test
       - build-and-push:
-          requires:
-            - node/test
+          #requires:
+            #- node/test
           filters:
             branches:
               only:
