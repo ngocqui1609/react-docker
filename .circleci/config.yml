@@ -10,12 +10,18 @@ jobs:
       DOCKER_IMAGE: ngocqui/react-docker
       DOCKER_TAG: latest
     executor: docker/docker
+    executor: node/default
     steps:
       - setup_remote_docker
       - checkout
       - docker/check:
           docker-username: DOCKER_USER
           docker-password: DOCKER_PASSWORD
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          command: yarn test
+          name: Run tests
       - docker/build:
           image: $DOCKER_IMAGE
           tag: $DOCKER_TAG
@@ -29,17 +35,24 @@ jobs:
             echo 'docker-compose down'
             echo 'docker-compose pull'
             echo 'docker-compose up -d'
+  deploy: # this can be any name you choose
+    executor: docker/default
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - docker/deploy-via-git:
+          force: true 
 workflows:
   my-pipeline:
     jobs:
-      - node/test
+      #- node/test
       - build-and-push:
           #requires:
             #- node/test
-          filters:
-            branches:
-              only:
-                - master
-      #- deploy:
-          #requires:
-            #- build-and-push
+          #filters:
+            #branches:
+              #only:
+                #- master
+      - deploy:
+          requires:
+            - build-and-push
