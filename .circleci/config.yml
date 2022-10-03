@@ -32,14 +32,6 @@ jobs:
             echo 'docker-compose down'
             echo 'docker-compose pull'
             echo 'docker-compose up -d'
-  #deploy:
-    #executor: docker/docker
-    #steps:
-      # Please add $SSH_KEY_FINGERPRINT, $DEPLOYED_USER@ and DEPLOYED_SERVER to project's environment
-      #- add_ssh_keys:
-          #fingerprints:
-            #- "57:5b:b5:23:1e:d2:d2:ae:88:ab:d2:08:c1:ba:36:76"
-      #- run: ssh -oStrictHostKeyChecking=no jenkins@13.212.79.132
 workflows:
   my-pipeline:
     jobs:
