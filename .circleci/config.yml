@@ -9,8 +9,7 @@ jobs:
     environment:
       DOCKER_IMAGE: ngocqui/react-docker
       DOCKER_TAG: latest
-    #executor: docker/docker
-    executor: node/default
+    executor: docker/docker
     steps:
       - setup_remote_docker
       - checkout
